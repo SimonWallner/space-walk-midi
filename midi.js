@@ -155,11 +155,12 @@ $(document).ready(function() {
             if (this.selectedIndex != 0) {
                 var index = $($(this).children()[this.selectedIndex]).data('index');
                 var element = tweakableVariables[index];
+                var absRange = element.max - element.min;
 
                 var rangeSlider = $(this).siblings('.rangeSlider');
                 rangeSlider.slider({
-                    min: element.min * 2,
-                    max: element.max * 2,
+                    min: element.min - (2 * absRange),
+                    max: element.max + (2 * absRange),
                     values: [element.min, element.max]
                 })
 
@@ -167,7 +168,7 @@ $(document).ready(function() {
                 $(this).siblings('.from').attr('value', element.min);
                 $(this).siblings('.to').attr('value', element.max);
 
-                var slider = $(this).siblings('div');
+                var slider = $(this).siblings('.slider');
                 slider.attr('data-index', index);
                 slider.slider({
                     min: element.min,
