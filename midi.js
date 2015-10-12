@@ -125,11 +125,28 @@ var sliderCallback = function(event, ui) {
 }
 
 $(document).ready(function() {
+
+    $('.rangeSlider').slider({
+        range: true,
+        step: 0.001,
+        slide: function(event, ui) {
+            var slider = $(this).siblings('.slider');
+            slider.slider({
+                min: ui.values[0],
+                max: ui.values[1],
+            })
+            $(this).siblings('.from').attr('value', ui.values[0]);
+            $(this).siblings('.to').attr('value', ui.values[1]);
+
+        }
+    })
+
     for (var i = 1; i <= 9; i++) {
         $('#slider' + i).slider({
             min: 0,
             max: 127,
             value: 0,
+            step: 0.001,
             change: sliderCallback,
             slide: sliderCallback
         });
@@ -138,6 +155,13 @@ $(document).ready(function() {
             if (this.selectedIndex != 0) {
                 var index = $($(this).children()[this.selectedIndex]).data('index');
                 var element = tweakableVariables[index];
+
+                var rangeSlider = $(this).siblings('.rangeSlider');
+                rangeSlider.slider({
+                    min: element.min * 2,
+                    max: element.max * 2,
+                    values: [element.min, element.max]
+                })
 
                 $(this).siblings('.value').text(element.value);
                 $(this).siblings('.from').attr('value', element.min);
