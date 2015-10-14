@@ -3,6 +3,7 @@ var libsw = new LibSpaceWalk();
 var midi;
 var tweakableVariables;
 
+// midi channel to control mapping
 var mapping = {
     "1": "slider1",
     "2": "slider2",
@@ -76,8 +77,8 @@ libsw.onMessage = function(data) {
                         objectName: obj.name,
                         variableName: variable.name,
                         value: variable.value,
-                        min: variable.value / 4,
-                        max: variable.value * 4
+                        min: variable.min,
+                        max: variable.max
                     })
             })
         });
