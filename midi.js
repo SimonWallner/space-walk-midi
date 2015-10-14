@@ -85,9 +85,17 @@ libsw.onMessage = function(data) {
         tweakableVariables.forEach(function(element, index) {
             $('<option>', {
                 text: element.objectName + '::' + element.variableName,
-                'data-index': index
+                'data-index': index,
+                value: index
             }).appendTo('.control select');
         })
+
+        // pre select variables
+        var selects = $('select')
+        for (var i = 0; i < tweakableVariables.length; i++) {
+            $(selects[i]).val(i);
+            $(selects[i]).change();
+        }
 	}
 }
 
@@ -137,7 +145,6 @@ $(document).ready(function() {
             })
             $(this).siblings('.from').attr('value', ui.values[0]);
             $(this).siblings('.to').attr('value', ui.values[1]);
-
         }
     })
 
