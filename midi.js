@@ -14,6 +14,15 @@ var mapping = {
     "7": "slider7",
     "8": "slider8",
     "9": "slider9",
+    "10": "slider10",
+    "11": "slider11",
+    "12": "slider12",
+    "13": "slider13",
+    "14": "slider14",
+    "15": "slider15",
+    "16": "slider16",
+    "17": "slider17",
+    "18": "slider18",
 }
 
 // midi functions
