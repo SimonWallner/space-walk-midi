@@ -149,7 +149,7 @@ $(document).ready(function() {
         }
     })
 
-    for (var i = 1; i <= 9; i++) {
+    for (var i = 1; i <= 18; i++) {
         $('#slider' + i).slider({
             min: 0,
             max: 127,

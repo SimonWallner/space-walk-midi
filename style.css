@@ -9,3 +9,13 @@ body {
 .rangeSlider {
     margin-bottom: 0.5em;
 }
+
+.scene {
+    width: 400px;
+    float: left;
+    margin-right: 1em;
+}
+
+input {
+    width: 50px;
+}
